@@ -20,13 +20,13 @@ A blog website allows people browse and share their travel experience, based on 
 
 ## Screenshots of Site
 
-## Main Page
+### Main Page
 ![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/index.png)
-## Create Post Page
+### Create Post Page
 ![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/createPage.png)
-## View Trip Page
+### View Trip Page
 ![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/viewTripPage.png)
-## My Blog Page
+### My Blog Page
 ![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/myBlogPage.png)
 
 

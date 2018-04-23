@@ -1,0 +1,45 @@
+<!-- main content -->
+<div>
+  <ul style="list-style-type: none;">
+    {{#each review}}
+    <li id="task_{{this._id}}" class="toPost">
+      <div class="h_content" id="h_content" >
+        <div class="card">
+          <div class="card-image" id="h_cimage">
+            <figure class="h_image indexPost" id="tas1_{{this._id}}">
+              <img src="/uploadTrip/view/{{this.reviewInfo.pic.[0]}}" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content" id="h_cardc">
+            <div class="media">
+              <div class="media-left" id="h_pic">
+                <figure class="image is-48x48">
+                  <img src={{this.user.picture}} alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content" id="h_media">
+                <p class="title is-4 indexPost" id="tas2_{{this._id}}"><a><u>{{this.reviewInfo.title}}</u></a></p>
+                <p class="subtitle is-6"><span>Trip Location:</span>{{this.reviewInfo.locationCountry}}</p>
+              </div>
+            </div>
+            <div  id="h_des">
+              <p class="index-article">{{this.reviewInfo.text}}</p>
+              <p class="cost"><span>Cost:</span>{{this.reviewInfo.cost}}</p>
+              <div style="float: left">
+                <span>Start date:</span>
+                <time style="margin-right: 15px">{{this.reviewInfo.starttime}}</time>
+                <span>End date:</span>
+                <time>{{this.reviewInfo.endtime}}</time>
+              </div>
+            </div>
+            <div class="h_info">
+              <span class="icon"><i class="fa fa-eye"></i></span><span>{{this.reviewInfo.count}}</span>
+              <span class="icon"><i class="fa fa-heart"></i></span><span>{{this.reviewInfo.like.length}}</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

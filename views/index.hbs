@@ -1,0 +1,335 @@
+<div>
+  <div id="bg3"></div>
+</div>
+<div class="index-page" >
+  <div class="header">
+    <h1 style="text-align:center">Plan your trip TODAY!</h1>
+    <div class="control has-icons-right" id="search_div">
+      <input class="input is-large" type="text" placeholder="Search" id="search_input">
+      <!-- <button onclick="search_basic()" id="search_btn">hello</button> -->
+      <span class="icon is-small is-right" > <!-- id="search_btn" onclick="search_basic()" -->
+        <i class="fa fa-search " aria-hidden="true"></i>
+      </span>
+      <div id="search_hide">
+        <a class="button is-large" id="search_btn">S</a>
+      </div>
+    </div>
+    <div id="ad_search"><a class="ad_a">Advanced Search</a></div>
+    <div id="search_advanced" >
+      <a id="ad_hide" class="ad_a">Hide</a>
+      <div style="position:relative;">
+        <div class="field is-horizontal">
+          <div class = "field-label">
+            <label class = "label">Location</label>
+          </div>
+          <div class = "field-body">
+            <div class = "field has-addons">
+              <div class = "control">
+                <div class = "button is-static">
+                  Country
+                </div>
+              </div>
+              <div class = "control has-icons-left">
+                <input class = "input" placeholder="Enter country" id="s_reviewCountry">
+              </input>
+              <span class="icon is-small is-left">
+                <i class="fa fa-globe"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class = "field-label">
+          <label class = "label">Location</label>
+        </div>
+        <div class = "field-body">
+          <div class = "field has-addons">
+            <div class = "control">
+              <div class = "button is-static">
+                City
+              </div>
+            </div>
+            <div class = "control has-icons-left">
+              <input class = "input" placeholder="Enter city" id="s_reviewCity">
+            </input>
+            <span class="icon is-small is-left">
+              <i class="fa fa-globe"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class = "field-label">
+        <label class = "label">Cost</label>
+      </div>
+      <div class = "field-body">
+        <div class = "field">
+          <div class = "control">
+            <div class = "select is-info">
+              <select id="s_reviewCost">
+                <option selected = selected style="display:none"></option>
+                <option>$100-$500</option>
+                <option>$500-$1000</option>
+                <option>$1000-$3000</option>
+                <option>more than $3000</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class = "field-label">
+        <label class = "label">Main transport</label>
+      </div>
+      <div class = "field-body">
+        <div class = "field">
+          <div class = "control">
+            <div class = "select is-info">
+              <select id="s_reviewTrans">
+                <option selected = selected style="display:none"></option>
+                <option>Car</option>
+                <option>Air</option>
+                <option>Motor</option>
+                <option>Bicycle</option>
+                <option>Walk</option>
+                <option>Ship</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label">label</label>
+      </div>
+      <div class="field-body">
+        <div class="box">
+          <div class="field is-grouped is-grouped-multiline" id="s_labels">
+            {{#each lab}} {{#if this.add}}
+            <div class="control">
+              <div class="tag is-info s_label_true" id="s_label_true{{this.id}}">
+                {{this.name}}
+                <button class="delete is-small s_label_delete" id="s_label{{this.id}}"></button>
+              </div>
+            </div>
+            {{/if}} {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label">label pool</label>
+      </div>
+      <div class="field-body">
+        <div class="box" style="width:90%">
+          <div class="field is-grouped is-grouped-multiline">
+            {{#each lab}}
+            <div class="control">
+              <button id="s_label_select_{{this.id}}" class="button is-info is-small s_label_select">
+                {{this.name}}
+              </button>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id = "ad_search_button">
+      <span class = "button" style="position:relative;right:0;">Search</span>
+    </div>
+  </div>
+</div>
+</div><!-- advanced search -->
+</div>
+
+
+<div id="container_bg">
+</div>
+<div id="container_pic">
+
+  <div class="tabs is-large" id="left_angle">
+    <button class="button is-medium is-pulled-left is-rounded arrow" id="btn_left">
+      <span class="icon"><i class="fa fa-angle-left fa-2x"></i></span>
+    </button>
+  </div>
+  <div class="tabs is-large" id="right_angle">
+    <button class="button is-medium is-pulled-right is-rounded arrow" id="btn_right">
+      <span class="icon"><i class="fa fa-angle-right fa-2x"></i></span>
+    </button>
+  </div>
+  <div id="list_pic" style="left: -750px;">
+
+    <img src="/uploadTrip/view/{{review_v.[4].reviewInfo.pic.[0]}}" alt="1"/>
+    <img src="/uploadTrip/view/{{review_v.[0].reviewInfo.pic.[0]}}" alt="1"/ class="upperImage1" id="{{review_v.[0]._id}}">
+    <img src="/uploadTrip/view/{{review_v.[1].reviewInfo.pic.[0]}}" alt="2"/ class="upperImage2" id="{{review_v.[1]._id}}">
+    <img src="/uploadTrip/view/{{review_v.[2].reviewInfo.pic.[0]}}" alt="3"/ class="upperImage3" id="{{review_v.[2]._id}}">
+    <img src="/uploadTrip/view/{{review_v.[3].reviewInfo.pic.[0]}}" alt="4"/ class="upperImage4" id="{{review_v.[3]._id}}">
+    <img src="/uploadTrip/view/{{review_v.[4].reviewInfo.pic.[0]}}" alt="5"/ class="upperImage5" id="{{review_v.[4]._id}}">
+    <img src="/uploadTrip/view/{{review_v.[0].reviewInfo.pic.[0]}}" alt="5"/>
+
+  </div>
+</div>
+
+
+<div id="description">
+  <div id="des_ct">
+    <div id="dots">
+      <span index="1" class="on"></span>
+      <span index="2"></span>
+      <span index="3"></span>
+      <span index="4"></span>
+      <span index="5"></span>
+    </div>
+    <!-- 1 -->
+    <div class="card-content" id="des_1">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="{{review_v.[0].user.picture}}" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="title is-4 yc des_w" >{{review_v.[0].reviewInfo.title}}</div>
+          <p class="subtitle is-6 des_w"><span>Trip Location: {{review_v.[0].reviewInfo.locationCountry}}</p>
+          </div>
+        </div>
+        <div id="des_content">
+          <p>{{review_v.[0].reviewInfo.text}}</p>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="card-content off" id="des_2">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="{{review_v.[1].user.picture}}" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 yc des_w">{{review_v.[1].reviewInfo.title}}</p>
+            <p class="subtitle is-6 des_w"><span>Trip Location: {{review_v.[1].reviewInfo.locationCountry}}</p>
+            </div>
+          </div>
+          <div id="des_content">
+            <p>{{review_v.[1].reviewInfo.text}}</p>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="card-content off" id="des_3">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="{{review_v.[2].user.picture}}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4 yc des_w">{{review_v.[2].reviewInfo.title}}</p>
+              <p class="subtitle is-6 des_w"><span>Trip Location: {{review_v.[2].reviewInfo.locationCountry}}</p>
+              </div>
+            </div>
+            <div id="des_content">
+              <p>{{review_v.[2].reviewInfo.text}}</p>
+            </div>
+          </div>
+          <!-- 4 -->
+          <div class="card-content off" id="des_4">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="{{review_v.[3].user.picture}}" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4 yc des_w">{{review_v.[3].reviewInfo.title}}</p>
+                <p class="subtitle is-6 des_w"><span>Trip Location: {{review_v.[3].reviewInfo.locationCountry}}</p>
+                </div>
+              </div>
+              <div id="des_content">
+                <p>{{review_v.[3].reviewInfo.text}}</p>
+              </div>
+            </div>
+            <!-- 5 -->
+            <div class="card-content off" id="des_5">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="{{review_v.[4].user.picture}}" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4 yc des_w">{{review_v.[4].reviewInfo.title}}</p>
+                  <p class="subtitle is-6 des_w"><span>Trip Location: {{review_v.[4].reviewInfo.locationCountry}}</p>
+                  </div>
+                </div>
+                <div id="des_content">
+                  <p>{{review_v.[4].reviewInfo.text}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+
+
+          <!-- main content -->
+          <div>
+            <ul style="list-style-type: none;">
+              {{#each review}}
+              <li id="task_{{this._id}}" class="toPost">
+                <div class="h_content" id="h_content" >
+                  <!-- 1st -->
+                  <div class="card">
+                    <div class="card-image indexPost" id="task_{{this._id}}">
+                      <figure class="h_image" style="cursor: pointer;">
+                        <img src="/uploadTrip/view/{{this.reviewInfo.pic.[0]}}" alt="Placeholder image">
+                      </figure>
+                    </div>
+                    <div class="card-content" id="h_cardc">
+                      <div class="media">
+                        <div class="media-left" id="h_pic">
+                          <figure class="image is-48x48">
+                            <img src={{this.user.picture}} alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="media-content" id="h_media">
+                          <p class="title is-4 indexPost yc" id="task_{{this._id}}"><a><u>{{this.reviewInfo.title}}</u></a></p>
+                          <p class="subtitle is-6"><span>Trip Location:</span>{{this.reviewInfo.locationCountry}}</p>
+                        </div>
+                      </div>
+                      <div id="h_des">
+                        <p class="index-article">{{this.reviewInfo.text}}</p>
+                      </div>
+                      <p class="cost" style="margin-bottom: 3px"><span>Cost:</span>{{this.reviewInfo.cost}}</p>
+                      {{#each this.reviewInfo.label}}
+                      <span class="tag" style="color: SteelBlue">#{{this}}</span>
+
+                      {{/each}}
+                      <div style="margin-top: 1px">
+                        <div style="float: left">
+                          <span>Start date:</span>
+                          <time style="margin-right: 15px">{{this.reviewInfo.starttime}}</time>
+                          <span>End date:</span>
+                          <time>{{this.reviewInfo.endtime}}</time>
+                        </div>
+                        <div class="h_info">
+                          <span class="icon"><i class="fa fa-eye"></i></span><span>{{this.reviewInfo.count}}</span>
+                          <span class="icon"><i class="fa fa-heart"></i></span><span>{{this.reviewInfo.like.length}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          <!-- main content -->
+
+          <script type = "text/javascript" src = "javascripts/mapApi.js"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsAURuHNsGX16TOcrNn20_SKizDxgEnM&libraries=places&callback=initMap"
+          async defer></script>

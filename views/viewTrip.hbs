@@ -1,0 +1,108 @@
+<div class="viewTrip-page">
+  <div class="set_index" id="_j_cover_box">
+    <div class="set_bg _j_load_cover" style="position:absolute;z-index:0;top:65px;">
+      <img src="https://p3-q.mafengwo.net/s10/M00/11/7D/wKgBZ1m7pCCAe-T8AAUJ9WQV1j454.jpeg" >
+    </div>
+    <div class="_j_titlebg">
+      <div class="title_bg"></div>
+      <div class="level" >
+        <!-- Left side -->
+        <div class="level-left" style="margin-left: 10px; z-index:5">
+          <h1 data-length="13" class="headtext lh60" style="color: #FFFFFF">{{review.reviewInfo.title}}</h1>
+        </div>
+        <!-- Right side -->
+        <div class="level-right" style="margin-top:300px; margin-right: 70px;z-index:3">
+          {{#if isLiked}}
+          <span class="bd-emoji">❤️&nbsp;</span><span><a class="unlikeBtn" id="unlike_{{review._id}}">Liked</a></span>
+          {{else}}
+          <span class="bd-emoji">❤️&nbsp;</span><span><a class="likeBtn" id="like_{{review._id}}">Like</a></span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallerycontainer" style="margin-top: 250px">
+    <ul>
+      {{#each review.reviewInfo.pic}}
+      <a class="thumbnail" href="#thumb"><img src="/uploadTrip/view/{{this}}" width="200px" height="132px" border="0" /><span><img src="/uploadTrip/view/{{this}}" /><br /></span></a>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="travel_directory scheduleinfo">
+    <div class="tarvel_dir_list">
+      <ul>
+        <li class="time">Departure Date<span>:  </span>{{review.reviewInfo.starttime}}<i></i></li>
+        <li class="day">End Date<span>:  </span>{{review.reviewInfo.endtime}}</li>
+        <li class="people">Transport<span>:  </span>          {{review.reviewInfo.mainTrans}}</li>
+        <li class="cost">Cost Per Person<span>:  </span>{{review.reviewInfo.cost}}</li>
+      </ul>
+    </div>
+    <br />
+    <br />
+    <div class="travel_label_list field is-grouped is-grouped-multiline" style="margin-top: 20px; margin-left: 10px">
+      {{#each review.reviewInfo.label}}
+      <div class="control">
+        <div class="tag is-info label_true">
+          {{this}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <nav class="level">
+    <div class="level-left" style="width: 60%; margin-left: 30px; height: auto">
+
+    <style type="text/css">.email-body{white-space: pre-wrap;}</style>
+    <div class='trip-article' id = "br_text" style="text-align:justify;">
+      {{#each text_array}}
+      <p>
+        {{this}}
+      </p>
+      {{/each}}
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="card" style="width:475px; height: 560px">
+      <div class="card-image">
+        <figure class="image is-4by3 indexPost" id="task_{{topView._id}}">
+          <img src="/uploadTrip/view/{{topView.reviewInfo.pic.[0]}}" alt="Placeholder image" >
+        </figure>
+      </div>
+      <div class="card-content" style="margin-top: 310px">
+        <div class="media" style="height: 110px">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="{{topView.user.picture}}" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4 indexPost" id="task_{{topView._id}}">{{topView.reviewInfo.title}}</p>
+            <p class="subtitle is-6">{{topView.reviewInfo.locationCountry}}</p>
+          </div>
+        </div>
+        <div class="index-article">
+          {{topView.reviewInfo.text}}
+        </div>
+        <br>
+        <div style="margin-top: 1px">
+          <div style="float: left">
+            <span>Start date:</span>
+            <time style="margin-right: 15px">{{topView.reviewInfo.starttime}}</time>
+            <span>End date:</span>
+            <time>{{topView.reviewInfo.endtime}}</time>
+          </div>
+          <div class="h_info">
+            <span class="icon"><i class="fa fa-eye"></i></span><span>{{topView.reviewInfo.count}}</span>
+            <span class="icon"><i class="fa fa-heart"></i></span><span>{{topView.reviewInfo.like.length}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p>
+</div>
+</nav>
+
+</div>

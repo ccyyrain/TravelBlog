@@ -1,0 +1,256 @@
+<html>
+<head>
+  <title>Jquery - Datepicker Example using jquery ui</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="margin-field">
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label">Title</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <input class="input" type="text" placeholder="Title of your article" id="u_reviewTitle" value="{{update.reviewInfo.title}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label">
+        <label class="label">Location</label>
+      </div>
+      <div class="field-body">
+        <div class="field has-addons">
+          <div class="control">
+            <div class="button is-static">Country</div>
+            <script src="/javascripts/mapApi.js"></script>
+          </div>
+          <div class="control has-icons-left">
+            <input class="input" placeholder="Enter country" id="u_reviewCountry" value="{{update.reviewInfo.locationCountry}}">
+          </input>
+          <span class="icon is-small is-left">
+            <i class="fa fa-globe"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field has-addons">
+        <div class="control">
+          <div class="button is-static">
+            City
+          </div>
+        </div>
+        <div class="control has-icons-left">
+          <input class="input" placeholder="Enter city" id="u_reviewCity" value="{{update.reviewInfo.locationCity}}">
+        </input>
+        <span class="icon is-small is-left">
+          <i class="fa fa-globe"></i>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Time</label>
+  </div>
+  <div class="field-body">
+    <div class="field has-addons">
+      <div class="control">
+        <div class="button is-static">
+          Start at
+        </div>
+      </div>
+      <div class="control">
+        <div class="field">
+          <input type="text" id="u_startDate" class="input from-control" value="{{update.reviewInfo.starttime}}">
+        </div>
+        <script src="/javascripts/datepicker.js"></script>
+      </div>
+    </div>
+    <div class="field has-addons">
+      <div class="control">
+        <div class="button is-static">
+          End
+        </div>
+      </div>
+      <div class="control">
+        <div class="field">
+          <input type="text" id="u_endDate" class="input from-control" value="{{update.reviewInfo.endtime}}">
+        </div>
+        <script src="/javascripts/datepicker.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Cost</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <div class="select is-info">
+          <select id="u_reviewCost">
+            <option selected = selected style="display:none"></option>
+            <option>$100-$500</option>
+            <option>$500-$1000</option>
+            <option>$1000-$3000</option>
+            <option>more than $3000</option>
+          </select>
+
+        </div>
+        <script type="text/javascript">
+        var t = "{{update.reviewInfo.cost}}"
+        $("#u_reviewCost").val(t)</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Main transport</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <div class="select is-info">
+          <select id="u_reviewTrans">
+            <option selected = selected style="display:none"></option>
+            <option>Car</option>
+            <option>Air</option>
+            <option>Motor</option>
+            <option>Bicycle</option>
+            <option>Walk</option>
+            <option>Ship</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <script type = "text/javascript">
+        var tran = "{{update.reviewInfo.mainTrans}}"
+        $("#u_reviewTrans").val(tran)</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">label</label>
+  </div>
+  <div class="field-body">
+    <div class="box">
+      <div class="field is-grouped is-grouped-multiline" id="u_labels">
+        {{#each lab}} {{#if this.add}}
+        <div class="control">
+          <div class="tag is-info u_label_true" id="u_label_true{{this.id}}">
+            {{this.name}}
+            <button class="delete is-small u_label_delete" id="u_label{{this.id}}"></button>
+          </div>
+        </div>
+        {{/if}} {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">label pool</label>
+  </div>
+  <div class="field-body">
+    <div class="box">
+      <div class="field is-grouped is-grouped-multiline">
+        {{#each lab}}
+        <div class="control">
+          <button id="u_label_select_{{this.id}}" class="button is-info is-small u_label_select">
+            {{this.name}}
+          </button>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label"><label>
+    </div>
+    <div class = "field-body">
+      <div class = "field">
+        <div class = "control">
+          <textarea class="textarea" placeholder="Write your experience here..." rows="10" id="u_reviewText">{{update.reviewInfo.text}}</textarea>
+          <datepicker placeholder="European Format ('d-m-Y')" :config="{ dateFormat: 'd-m-Y', static: true }"></datepicker>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class = "field is-horizontal">
+    <div class = "field-label">
+      <label class = "label">image gallery</label>
+    </div>
+    <div class="field-body">
+      <div class="box">
+        <div class="field is-grouped is-grouped-multiline" id="u_image_gallery">
+          {{#each test_img}}
+          <div class="control">
+            <div class="panel" style="float:left">
+              <a class="close image_delete" id="img_close_{{this}}"></a>
+              <img src="/uploadTrip/view/{{this}}"></img>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class = "field-label">
+      <label class = "label"><label>
+      </div>
+      <div class = "field-body">
+        <div class = "field">
+          <div class="file is-left is-boxed is-success has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume" multiple id = "u_theinputfield">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fa fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload image
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class = "field-label">
+        <label class = "label"><label>
+        </div>
+        <div class = "field-body">
+          <a class="button is-success" role="button" id="updateReview">Upload your review</a>
+        </div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsAURuHNsGX16TOcrNn20_SKizDxgEnM&libraries=places&callback=initMap"
+        async defer></script>
+      </div>
+      <script src="/javascripts/mapApi.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgsAURuHNsGX16TOcrNn20_SKizDxgEnM&libraries=places&callback=initMap" async defer></script>
+    </div>
+  </body>
+
+  </html>

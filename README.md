@@ -21,13 +21,13 @@ A blog website allows people browse and share their travel experience, based on 
 ## Screenshots of Site
 
 ## Main Page
-![Alt text](https://github.com/ccyyrain/TravelBlog/master/index.png)
+![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/index.png)
 ## Create Post Page
-![Alt text](https://github.com/ccyyrain/TravelBlog/master/createPage.png)
+![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/createPage.png)
 ## View Trip Page
-![Alt text](https://github.com/ccyyrain/TravelBlog/master/viewTripPage.png)
+![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/viewTripPage.png)
 ## My Blog Page
-![Alt text](https://github.com/ccyyrain/TravelBlog/master/myBlogPage.png)
+![Alt text](https://github.com/ccyyrain/TravelBlog/blob/master/myBlogPage.png)
 
 
 ## External Dependencies

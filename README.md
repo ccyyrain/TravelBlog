@@ -1,6 +1,6 @@
 # TravelBlog
 A blog website allows people browse and share their travel experience, based on React and Mango DB.
-App Link: https://obscure-hollows-77637.herokuapp.com/
+* App Link: https://obscure-hollows-77637.herokuapp.com/
 
 ## Group Members:
 
